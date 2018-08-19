@@ -27,3 +27,5 @@ mybatis:
     #     打印sql语句
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     jdbc-type-for-null: NULL
+# 文件上传储存的目录
+upload-dir: ~/IdeaProjects/uploadFiles
