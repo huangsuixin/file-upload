@@ -21,33 +21,30 @@ import java.io.File;
  * @className MyResponseBodyAdvice
  * @date 2018/8/2 10:11
  * @description 结果统一装配
- * @program codecount
+ * @program
  */
-@ControllerAdvice
+@ControllerAdvice(basePackages = "com.silence.fileupload.controller.api")
 public class MyResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    private final static Logger logger = LoggerFactory.getLogger(MyResponseBodyAdvice.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(MyResponseBodyAdvice.class);
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        logger.debug("MyResponseBodyAdvice==>supports:" + converterType);
-        logger.debug("MyResponseBodyAdvice==>supports:" + returnType.getClass());
-        logger.debug("MyResponseBodyAdvice==>supports:"
+        LOGGER.debug("MyResponseBodyAdvice==>supports:" + converterType);
+        LOGGER.debug("MyResponseBodyAdvice==>supports:" + returnType.getClass());
+        LOGGER.debug("MyResponseBodyAdvice==>supports:"
                 + MappingJackson2HttpMessageConverter.class.isAssignableFrom(converterType));
         return MappingJackson2HttpMessageConverter.class.isAssignableFrom(converterType);
     }
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        if (null == body) {
-            return null;
-        }
-
-        if (body instanceof ActionResult || body instanceof String) {
+        if (body instanceof ActionResult) {
             return body;
         } else if (body instanceof File) {
+            LOGGER.info("response file");
             return body;
         } else {
-            logger.debug("MyResponseBodyAdvice==>beforeBodyWrite:" + returnType + ", " + body);
-            ActionResult result = new ActionResult(true);
+            LOGGER.debug("MyResponseBodyAdvice==>beforeBodyWrite:" + returnType + ", " + body);
+            ActionResult<Object> result = new ActionResult<>(true);
             result.setCode(HttpStatus.OK.value());
             result.setMessage(HttpStatus.OK.getReasonPhrase());
             result.setData(body);

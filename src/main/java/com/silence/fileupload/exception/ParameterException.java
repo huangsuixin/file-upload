@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @className ParameterException
  * @date 2018/08/17 下午10:12
  * @description 参数错误异常
- * @program file-upload
+ * @program file-save2Disk
  */
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class ParameterException extends RuntimeException {

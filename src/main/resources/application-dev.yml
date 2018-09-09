@@ -1,13 +1,13 @@
 spring:
   application:
-    name: file-upload-service
+    name: file-save2Disk-service
   datasource:
     druid:
       validation-query: SELECT 1 from dual
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://118.31.38.15:3306/Count_Lines?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
-      username: countlines
-      password: countlines
+      url: jdbc:mysql://localhost:3306/s_file_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      username: root
+      password: 1996
       initial-size: 5
       max-active: 20
       max-wait: 60000
@@ -18,6 +18,13 @@ spring:
           enabled: true
   thymeleaf:
     cache: false
+  servlet:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 10Mb
+      enabled: true
+
+
 server:
   port: 8091
 mybatis:
@@ -28,4 +35,4 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     jdbc-type-for-null: NULL
 # 文件上传储存的目录
-upload-dir: ~/IdeaProjects/uploadFiles
+upload-dir: /Users/silence/IdeaProjects/uploadFiles/

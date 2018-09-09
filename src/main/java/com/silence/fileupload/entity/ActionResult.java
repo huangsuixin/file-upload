@@ -8,12 +8,12 @@ package com.silence.fileupload.entity;
  * @description 相应结果封装
  * @program codecount
  */
-public class ActionResult {
+public class ActionResult<T> {
     private boolean success;
 
     private String message;
 
-    private Object data;
+    private T data;
 
     private Integer code;
 
@@ -29,7 +29,7 @@ public class ActionResult {
         this(success, message, null);
     }
 
-    public ActionResult(boolean success, String message, Object data) {
+    public ActionResult(boolean success, String message, T data) {
         this.success = success;
         this.message = message;
         this.data = data;
@@ -55,7 +55,7 @@ public class ActionResult {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

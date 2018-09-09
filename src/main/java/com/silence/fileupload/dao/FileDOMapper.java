@@ -4,7 +4,9 @@ import com.silence.fileupload.domain.FileDO;
 import com.silence.fileupload.domain.FileDOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface FileDOMapper {
     long countByExample(FileDOExample example);
 

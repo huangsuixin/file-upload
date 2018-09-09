@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+</head>
+<body>
+
+<form th:action="@{/image/upload}" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" multiple/>
+    <br>
+    <label>
+        <input type="text" name="staff" value="hsx"/>
+    </label>
+    <br>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html>

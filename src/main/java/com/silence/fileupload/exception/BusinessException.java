@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @className BusinessException
  * @date 2018/08/17 下午10:29
  * @description 业务异常
- * @program file-upload
+ * @program file-save2Disk
  */
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class BusinessException extends RuntimeException {

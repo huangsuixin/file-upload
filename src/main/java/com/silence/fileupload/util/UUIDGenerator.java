@@ -11,10 +11,10 @@ import java.util.UUID;
  * @className UUIDGenerator
  * @date 2018/08/18 上午11:35
  * @description UUIDGenerator
- * @program file-upload
+ * @program file-save2Disk
  */
 public class UUIDGenerator {
-    private final static Logger logger = LoggerFactory.getLogger(UUIDGenerator.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(UUIDGenerator.class);
 
     /**
      * 生成32位随机的UUID
