@@ -1,10 +1,8 @@
 package com.silence.fileupload.controller.api;
 
+import com.huangsuixin.sdk.exception.ParameterException;
 import com.silence.fileupload.controller.BaseController;
-import com.silence.fileupload.entity.dto.FileDTO;
-import com.silence.fileupload.exception.ParameterException;
 import com.silence.fileupload.service.IFileService;
-import com.silence.fileupload.util.UUIDGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
